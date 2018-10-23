@@ -1,13 +1,9 @@
 def import_data(file):
-    import csv
-    with open(file) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        time = []
-        voltage = []
+    import numpy as np
 
-        for row in csv_reader:
-            t = float(row[0])
-            v = float(row[1])
-            time.append(t)
-            voltage.append(v)
-        return time, voltage
+    try:
+        data = np.loadtxt(file, delimiter=',')
+    except ValueError:
+       print("CSV file must only contain numbers")
+    else:
+        return data
