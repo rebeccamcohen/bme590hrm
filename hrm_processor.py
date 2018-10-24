@@ -20,12 +20,8 @@ def find_peak_indices(data):
 def find_num_peaks(i):
     if len(i) == 0:
         raise TypeError
-    try:
-        num_beats = len(i)
-    except TypeError:
-        print("no heart beats")
     else:
-        return num_beats
+        return len(i)
 
 def find_time_of_peaks(data,ind):
     time_of_peaks = data[ind,0]
