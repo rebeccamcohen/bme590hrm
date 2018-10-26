@@ -15,8 +15,8 @@ import pytest
 def test_find_min():
     data = numpy.array([(1, 2), (3, 4), (5, 6)])
     extremes = find_min_max(data)
-    expected = (2, 6)
-    assert extremes == (2, 6)
+    expected = [2, 6]
+    assert extremes == [2, 6]
 
 
 def test_find_duration():
