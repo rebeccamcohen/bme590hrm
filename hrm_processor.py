@@ -85,7 +85,6 @@ def divide_data(data, windowlen):
 
 
 def find_peak_indices(w1, w2, w3, w4, w5):
-    import peakutils
     """Finds indices of peaks in all 5 windows
 
     Args:
@@ -102,6 +101,8 @@ def find_peak_indices(w1, w2, w3, w4, w5):
         ind_w4 (ndarray): Indices of voltage peaks in window 4
         ind_w5 (ndarray): Indices of voltage peaks in window 5
     """
+    import peakutils
+
     ind_w1 = peakutils.indexes(w1[:, 1], thres=0.5 * numpy.amax(w1[:, 1]))
     ind_w2 = peakutils.indexes(w2[:, 1], thres=0.5 * numpy.amax(w2[:, 1]))
     ind_w3 = peakutils.indexes(w3[:, 1], thres=0.5 * numpy.amax(w3[:, 1]))
