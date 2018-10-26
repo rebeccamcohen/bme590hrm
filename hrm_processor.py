@@ -85,6 +85,7 @@ def divide_data(data, windowlen):
 
 
 def find_peak_indices(w1, w2, w3, w4, w5):
+    import peakutils
     """Finds indices of peaks in all 5 windows
 
     Args:
