@@ -7,6 +7,7 @@ logging.basicConfig(filename="main_log.txt",
                     datefmt='%m/%d/%Y %I:%M:%S %p',
                     level=logging.DEBUG)
 
+
 def find_min_max(data):
     minVoltage = numpy.amin(data[:, 1])
     maxVoltage = numpy.amax(data[:, 1])
@@ -89,7 +90,6 @@ def find_bpm(duration, total_numPeaks):
                         datefmt='%m/%d/%Y %I:%M:%S %p')
 
     duration_inmins = duration / 60
-
 
     bpm = total_numPeaks / duration_inmins
     logging.info('Calculated the bpm as %s', bpm)
