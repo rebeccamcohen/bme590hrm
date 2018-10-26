@@ -1,17 +1,24 @@
 import numpy
 import peakutils
+import logging
 
+logging.basicConfig(filename="main_log.txt",
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',
+                    level=logging.DEBUG)
 
 def find_min_max(data):
     minVoltage = numpy.amin(data[:, 1])
     maxVoltage = numpy.amax(data[:, 1])
     extremes = (minVoltage, maxVoltage)
+    logging.info('Calculated the voltage extremes as %s', extremes)
     return extremes
 
 
 def find_duration(data):
     len_time = len(data[:, 1])
     duration = data[len_time-1, 0] - data[0, 0]
+    logging.info('Calculated the duration as %s', duration)
     return duration
 
 
@@ -53,7 +60,11 @@ def find_num_peaks_window(ind_w1, ind_w2, ind_w3, ind_w4, ind_w5):
 
 
 def find_num_peaks_total(ind_w1, ind_w2, ind_w3, ind_w4, ind_w5):
-    return len(ind_w1) + len(ind_w2) + len(ind_w3) + len(ind_w4) + len(ind_w5)
+    num_peaks_total = len(ind_w1) + len(ind_w2) + \
+                      len(ind_w3) + len(ind_w4) + len(ind_w5)
+    logging.info('Calculated the number of detected beats as %s',
+                 num_peaks_total)
+    return num_peaks_total
 
 
 def find_time_of_peaks(w1, w2, w3, w4, w5,
@@ -67,14 +78,24 @@ def find_time_of_peaks(w1, w2, w3, w4, w5,
     time_of_peaks = numpy.concatenate((time_of_peaks1, time_of_peaks2,
                                        time_of_peaks3, time_of_peaks4,
                                        time_of_peaks5))
+    logging.info('Calculated the times when a beat occurred: %s',
+                 time_of_peaks)
     return time_of_peaks
 
 
 def find_bpm(duration, total_numPeaks):
+    logging.basicConfig(filename="dict.txt",
+                        format='%(asctime)s %(message)s',
+                        datefmt='%m/%d/%Y %I:%M:%S %p')
 
     duration_inmins = duration / 60
-    bpm = total_numPeaks / duration_inmins
 
+
+    bpm = total_numPeaks / duration_inmins
+    logging.info('Calculated the bpm as %s', bpm)
+
+    if bpm > 200:
+        logging.warning('bpm is too high, most likely due to faulty data')
     return bpm
 
 
@@ -86,4 +107,5 @@ def create_metrics_dictionary(a, b, c, d, e):
     metrics_dict["num_beats"] = d
     metrics_dict["beats"] = e
 
+    logging.info("Created dictionary for metrics")
     return metrics_dict

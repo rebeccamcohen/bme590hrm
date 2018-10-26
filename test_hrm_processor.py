@@ -93,18 +93,19 @@ def test_find_num_peaks_window():
     assert numBeats_w4 == 2
     assert numBeats_w5 == 3
 
-    def test_find_num_peaks_total():
-        peakInds_w1 = [8, 39, 71]
-        peakInds_w2 = [22, 54]
-        peakInds_w3 = [5, 36, 68]
-        peakInds_w4 = [19, 51]
-        peakInds_w5 = [2, 33, 65]
 
-        numBeats = find_num_peaks_total(peakInds_w1,
-                                        peakInds_w2, peakInds_w3, peakInds_w4,
-                                        peakInds_w5)
+def test_find_num_peaks_total():
+    peakInds_w1 = [8, 39, 71]
+    peakInds_w2 = [22, 54]
+    peakInds_w3 = [5, 36, 68]
+    peakInds_w4 = [19, 51]
+    peakInds_w5 = [2, 33, 65]
 
-        assert numBeats == 13
+    numBeats = find_num_peaks_total(peakInds_w1,
+                                    peakInds_w2, peakInds_w3, peakInds_w4,
+                                    peakInds_w5)
+
+    assert numBeats == 13
 
 
 def test_find_time_of_peaks():
