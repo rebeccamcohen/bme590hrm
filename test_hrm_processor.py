@@ -9,6 +9,7 @@ from hrm_processor import find_time_of_peaks
 from hrm_processor import find_bpm
 from hrm_processor import create_metrics_dictionary
 import numpy
+import peakutils
 import pytest
 
 
