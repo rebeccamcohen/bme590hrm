@@ -1,14 +1,17 @@
 import hrm_processor as p
+from hrm_reader import import_data
 import numpy as np
 import logging
 
 if __name__ == "__main__":
-    file = 'test_data/test_data12.csv'
-    data = np.loadtxt(file, delimiter=',')
     logging.basicConfig(filename="main_log.txt",
                         format='%(asctime)s %(message)s',
                         datefmt='%m/%d/%Y %I:%M:%S %p',
                         level=logging.DEBUG)
+    
+    file = 'test_data/test_data12.csv'
+    data = import_data(file)
+    print(data)
 
     extremes = p.find_min_max(data)
     print(extremes)
