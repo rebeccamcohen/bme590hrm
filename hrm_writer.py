@@ -1,4 +1,10 @@
 import json
+import logging
+
+logging.basicConfig(filename="main_log.txt",
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',
+                    level=logging.DEBUG)
 
 
 def write_jsonfile(dict, filename):
@@ -14,3 +20,5 @@ def write_jsonfile(dict, filename):
 
     with open((filename + '.json'), 'w') as outfile:
         json.dump(dict, outfile, sort_keys=True, indent=4)
+
+    logging.info('Wrote json file containing dict with metrics')
