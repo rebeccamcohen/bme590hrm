@@ -182,6 +182,7 @@ def find_time_of_peaks(w1, w2, w3, w4, w5,
     time_of_peaks = numpy.concatenate((time_of_peaks1, time_of_peaks2,
                                        time_of_peaks3, time_of_peaks4,
                                        time_of_peaks5))
+    time_of_peaks = numpy.ndarray.tolist(time_of_peaks)
     logging.info('Calculated the times when a beat occurred: %s',
                  time_of_peaks)
     return time_of_peaks

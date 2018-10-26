@@ -1,16 +1,19 @@
 import hrm_processor as p
 from hrm_reader import import_data
+from hrm_writer import write_jsonfile
 import numpy as np
 import logging
 
+logging.basicConfig(filename="main_log.txt",
+                    format='%(asctime)s %(message)s',
+                    datefmt='%m/%d/%Y %I:%M:%S %p',
+                    level=logging.DEBUG)
+
+
 if __name__ == "__main__":
-    logging.basicConfig(filename="main_log.txt",
-                        format='%(asctime)s %(message)s',
-                        datefmt='%m/%d/%Y %I:%M:%S %p',
-                        level=logging.DEBUG)
-    
-    file = 'test_data/test_data12.csv'
-    data = import_data(file)
+
+    filename = 'test_data/test_data1'
+    data = import_data(filename + '.csv')
     print(data)
 
     extremes = p.find_min_max(data)
@@ -42,4 +45,5 @@ if __name__ == "__main__":
     metrics = p.create_metrics_dictionary(bpm, extremes, duration,
                                           num_peaks_total, time_of_peaks)
     print(metrics)
-    
+
+    write_jsonfile(metrics, filename)
