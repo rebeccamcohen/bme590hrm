@@ -42,3 +42,4 @@ if __name__ == "__main__":
     metrics = p.create_metrics_dictionary(bpm, extremes, duration,
                                           num_peaks_total, time_of_peaks)
     print(metrics)
+    
