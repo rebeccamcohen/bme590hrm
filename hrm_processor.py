@@ -9,13 +9,14 @@ logging.basicConfig(filename="main_log.txt",
 
 
 def find_min_max(data):
-    """Find extreme voltage values
+    """
 
     Args:
         data (ndarray): Time and voltage data
 
     Returns:
         extremes (list): Minimum and maximum voltage values
+
     """
 
     minVoltage = numpy.amin(data[:, 1])
@@ -62,18 +63,21 @@ def find_windowlen(data):
 
 
 def divide_data(data, windowlen):
-    """Divides data array into five smaller arrays
+    """
 
     Args:
         data (ndarray): Time and voltage data
         windowlen (int): Length of sub-arrays
 
     Returns:
-        w1 (ndarray): Time and voltage data in window 1
-        w2 (ndarray): Time and voltage data in window 2
-        w3 (ndarray): Time and voltage data in window 3
-        w4 (ndarray): Time and voltage data in window 4
-        w5 (ndarray): Time and voltage data in window 5
+        (ndarray): Time and voltage data in each window:
+
+            * w1 (ndarray): Time and voltage data in window 1
+            * w2 (ndarray): Time and voltage data in window 2
+            * w3 (ndarray): Time and voltage data in window 3
+            * w4 (ndarray): Time and voltage data in window 4
+            * w5 (ndarray): Time and voltage data in window 5
+
     """
     w1 = data[0:windowlen, :]
     w2 = data[windowlen:windowlen*2, :]
@@ -95,11 +99,14 @@ def find_peak_indices(w1, w2, w3, w4, w5):
         w5 (ndarray): Time and voltage data in window 5
 
     Returns:
-        ind_w1 (ndarray): Indices of voltage peaks in window 1
-        ind_w2 (ndarray): Indices of voltage peaks in window 2
-        ind_w3 (ndarray): Indices of voltage peaks in window 3
-        ind_w4 (ndarray): Indices of voltage peaks in window 4
-        ind_w5 (ndarray): Indices of voltage peaks in window 5
+        (ndarray): Indices of voltage peaks in each window:
+
+            * ind_w1 (ndarray): Indices of voltage peaks in window 1
+            * ind_w2 (ndarray): Indices of voltage peaks in window 2
+            * ind_w3 (ndarray): Indices of voltage peaks in window 3
+            * ind_w4 (ndarray): Indices of voltage peaks in window 4
+            * ind_w5 (ndarray): Indices of voltage peaks in window 5
+
     """
     import peakutils
 
@@ -123,11 +130,14 @@ def find_num_peaks_window(ind_w1, ind_w2, ind_w3, ind_w4, ind_w5):
         ind_w5 (ndarray): Indices of voltage peaks in window 5
 
     Returns:
-        num_peaks1 (int): Number of peaks in window 1
-        num_peaks2 (int): Number of peaks in window 2
-        num_peaks3 (int): Number of peaks in window 3
-        num_peaks4 (int): Number of peaks in window 4
-        num_peaks5 (int): Number of peaks in window 5
+        (ndarray): Number of peaks in each window:
+
+            * num_peaks1 (int): Number of peaks in window 1
+            * num_peaks2 (int): Number of peaks in window 2
+            * num_peaks3 (int): Number of peaks in window 3
+            * num_peaks4 (int): Number of peaks in window 4
+            * num_peaks5 (int): Number of peaks in window 5
+
 
     """
     return len(ind_w1), len(ind_w2), len(ind_w3), len(ind_w4), len(ind_w5)
@@ -172,6 +182,7 @@ def find_time_of_peaks(w1, w2, w3, w4, w5,
     Returns:
         time_of_peaks (ndarray): Time values corresponding
         to each detected beat
+
     """
     time_of_peaks1 = w1[ind_w1, 0]
     time_of_peaks2 = w2[ind_w2, 0]

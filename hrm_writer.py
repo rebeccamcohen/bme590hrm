@@ -8,7 +8,8 @@ logging.basicConfig(filename="main_log.txt",
 
 
 def write_jsonfile(dict, filename):
-    """
+    """writes a json file for the metrics dictionary
+
     Args:
         dict (dict): dictionary consisting of calculated metrics
         filename (str): name of input CSV file
