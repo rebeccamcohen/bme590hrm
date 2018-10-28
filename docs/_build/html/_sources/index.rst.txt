@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
+
 Welcome to hrm's documentation!
 ===============================
 
@@ -19,10 +21,4 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-   hrm
-   hrm_processor
-   hrm_reader
-   hrm_writer
-   test_hrm_processor
-   test_hrm_reader
-   test_hrm_writer
+

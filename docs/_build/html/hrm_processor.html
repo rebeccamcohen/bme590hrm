@@ -65,8 +65,7 @@
 <dl class="function">
 <dt id="hrm_processor.divide_data">
 <code class="descclassname">hrm_processor.</code><code class="descname">divide_data</code><span class="sig-paren">(</span><em>data</em>, <em>windowlen</em><span class="sig-paren">)</span><a class="headerlink" href="#hrm_processor.divide_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Divides data array into five smaller arrays</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -76,14 +75,20 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Time and voltage data in window 1
-w2 (ndarray): Time and voltage data in window 2
-w3 (ndarray): Time and voltage data in window 3
-w4 (ndarray): Time and voltage data in window 4
-w5 (ndarray): Time and voltage data in window 5</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Time and voltage data in each window:</p>
+<blockquote>
+<div><ul class="simple">
+<li>w1 (ndarray): Time and voltage data in window 1</li>
+<li>w2 (ndarray): Time and voltage data in window 2</li>
+<li>w3 (ndarray): Time and voltage data in window 3</li>
+<li>w4 (ndarray): Time and voltage data in window 4</li>
+<li>w5 (ndarray): Time and voltage data in window 5</li>
+</ul>
+</div></blockquote>
+</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">w1 (ndarray)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
 </td>
 </tr>
 </tbody>
@@ -138,8 +143,7 @@ w5 (ndarray): Time and voltage data in window 5</p>
 <dl class="function">
 <dt id="hrm_processor.find_min_max">
 <code class="descclassname">hrm_processor.</code><code class="descname">find_min_max</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#hrm_processor.find_min_max" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find extreme voltage values</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -197,14 +201,20 @@ w5 (ndarray): Time and voltage data in window 5</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Number of peaks in window 1
-num_peaks2 (int): Number of peaks in window 2
-num_peaks3 (int): Number of peaks in window 3
-num_peaks4 (int): Number of peaks in window 4
-num_peaks5 (int): Number of peaks in window 5</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Number of peaks in each window:</p>
+<blockquote>
+<div><ul class="simple">
+<li>num_peaks1 (int): Number of peaks in window 1</li>
+<li>num_peaks2 (int): Number of peaks in window 2</li>
+<li>num_peaks3 (int): Number of peaks in window 3</li>
+<li>num_peaks4 (int): Number of peaks in window 4</li>
+<li>num_peaks5 (int): Number of peaks in window 5</li>
+</ul>
+</div></blockquote>
+</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">num_peaks1 (int)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
 </td>
 </tr>
 </tbody>
@@ -228,14 +238,20 @@ num_peaks5 (int): Number of peaks in window 5</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Indices of voltage peaks in window 1
-ind_w2 (ndarray): Indices of voltage peaks in window 2
-ind_w3 (ndarray): Indices of voltage peaks in window 3
-ind_w4 (ndarray): Indices of voltage peaks in window 4
-ind_w5 (ndarray): Indices of voltage peaks in window 5</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><p>Indices of voltage peaks in each window:</p>
+<blockquote>
+<div><ul class="simple">
+<li>ind_w1 (ndarray): Indices of voltage peaks in window 1</li>
+<li>ind_w2 (ndarray): Indices of voltage peaks in window 2</li>
+<li>ind_w3 (ndarray): Indices of voltage peaks in window 3</li>
+<li>ind_w4 (ndarray): Indices of voltage peaks in window 4</li>
+<li>ind_w5 (ndarray): Indices of voltage peaks in window 5</li>
+</ul>
+</div></blockquote>
+</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ind_w1 (ndarray)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(ndarray)</p>
 </td>
 </tr>
 </tbody>

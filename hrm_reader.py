@@ -7,7 +7,7 @@ logging.basicConfig(filename="main_log.txt",
 
 
 def import_data(file):
-    """load in CSV data
+    """load in csv file containing data
 
     Args:
         file (str): filename
@@ -16,7 +16,8 @@ def import_data(file):
         ValueError on ill-conditioned CSV file
 
     Returns:
-        data (ndarray): Time and voltage data
+        data (array): Time and voltage
+
     """
     import numpy as np
     import logging
